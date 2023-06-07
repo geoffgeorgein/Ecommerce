@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { useSession, signIn, signOut } from "next-auth/react";
+import Nav from '@/Components/Nav/nav';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,7 +28,8 @@ export default function Home() {
   
   }
   return (
-    <div>
+    <div className={'bg-blue-900 min-h-screen'}>
+    <Nav/>
       logged in {session?.user.email}
     </div>
   )
