@@ -8,11 +8,19 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
+  const {data:session}=useSession();
+
   
 return (
 
   <Layout>
-      test
+      <div className='text-blue-900'>
+
+        Hello {session?.user?.name}
+
+        <img src={session.user.image}></img>
+
+      </div>
     </Layout>
 
 )
