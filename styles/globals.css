@@ -13,3 +13,7 @@ input,textarea{
 input:focus, textarea:focus{
     @apply border-red-900;
 }   
+
+label{
+    @apply text-blue-900;
+}
