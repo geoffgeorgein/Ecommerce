@@ -1,10 +1,12 @@
 import Layout from '@/Components/layout';
+import Link from 'next/link';
 import React from 'react'
 
 const Products = () => {
   return (
     <Layout>
-        Products here
+        
+        <Link className="text-white bg-blue-900 rounded-md px-1 py-1 m-3" href={'/products'}> Products here </Link>
     </Layout>
   )
 }
