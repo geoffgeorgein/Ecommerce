@@ -11,18 +11,28 @@ const EditProductPage = () => {
     const router=useRouter();
     
     const {id}=router.query;
+    console.log(id);
 
     useEffect(()=>{
 
+      if (!id) {
+        return;
+      } 
+
       axios.get('/api/products?id='+id).then(response=>{
-        console.log(response.data)
+       
         setProductInfo(response.data);
       })
     },[id]);
+    console.log("Info");
+    console.log(productInfo);
     
   return (
     <Layout>
-        <ProductForm {...productInfo}/>
+      {
+        productInfo && <ProductForm {...productInfo}/>
+      }
+        
     </Layout>
   )
 }

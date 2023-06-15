@@ -11,7 +11,7 @@ export default function Layout({children}) {
 
   const { data: session } = useSession();
 
-  console.log(session);
+  // console.log(session);
 
   if(!session) {
    

@@ -3,16 +3,30 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import Layout from '@/Components/layout';
 
-const ProductForm = ({
+// const EditProductPage = () => {
+
+ const ProductForm= ({
+    _id,
     title:existingTitle,
     description:existingDescription,
-    price:existingPrice
-}) => {
+    price:existingPrice,
+})=> {
 
-    const [title,setTitle]=useState(existingTitle||'');
-    const [description,setDescription]=useState(existingDescription|| '');
-    const [price,setPrice]=useState(existingPrice||'');
+    // console.log("Title");
+    // console.log(existingDescription);
+    
+
+    const [title,setTitle]=useState(existingTitle || ' ');
+    const [description,setDescription]=useState(existingDescription || '');
+    const [price,setPrice]=useState(existingPrice|| '');
     const[goToProducts,setgoToProducts]=useState(false);
+
+    let n=existingPrice+Math.random(); 
+
+    console.log("Title");
+    console.log(description); 
+
+   
 
     const router=useRouter();
 
@@ -29,12 +43,13 @@ const ProductForm = ({
     }
 
 
+
   return (
    
         <form onSubmit={createProduct}>
             <h1 className='text-blue-900 mb-2 text-lg' >New Product </h1>
             <label>Product name</label>
-            <input type='text' placeholder='product name' value={title} onChange={ev=>setTitle(ev.target.value)} ></input>
+            <input key={_id} type='text' placeholder='product name' value={title}  onChange={ev=>setTitle(ev.target.value)} ></input>
             <label>Description</label>
             <textarea placeholder='description' value={description} onChange={ev=>setDescription(ev.target.value)}></textarea>
             <label>Price (in USD)</label>
@@ -44,6 +59,6 @@ const ProductForm = ({
     
   )
 }
+export default ProductForm;
   
 
-export default ProductForm
