@@ -30,10 +30,17 @@ import Layout from '@/Components/layout';
 
     const router=useRouter();
 
-    async function createProduct(e){
+    async function saveProduct(e){  
         e.preventDefault();
         const data={title,description,price};
-        await axios.post('/api/products',data);
+
+        if(_id){
+            await axios.put('/api/products',{...data,_id})
+        }
+        else{
+            await axios.post('/api/products',data);
+            
+        }
         setgoToProducts(true);
     }
 
@@ -46,7 +53,7 @@ import Layout from '@/Components/layout';
 
   return (
    
-        <form onSubmit={createProduct}>
+        <form onSubmit={saveProduct}>
             <h1 className='text-blue-900 mb-2 text-lg' >New Product </h1>
             <label>Product name</label>
             <input key={_id} type='text' placeholder='product name' value={title}  onChange={ev=>setTitle(ev.target.value)} ></input>
