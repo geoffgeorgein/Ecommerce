@@ -37,3 +37,14 @@ table.basic thead tr td{
 table.basic a{
     @apply px-4 rounded-sm inline-flex mx-1 items-center gap-1 text-sm py-1;
 }
+
+.btn-default, .btn-red{
+    @apply px-4 py-1 rounded-md;
+}
+
+.btn-red{
+    @apply bg-red-800 text-white;
+}
+.btn-default{
+    @apply bg-gray-600 text-white;
+}
