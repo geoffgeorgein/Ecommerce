@@ -21,7 +21,7 @@ import Layout from '@/Components/layout';
     const [description,setDescription]=useState(existingDescription || '');
     const [price,setPrice]=useState(existingPrice|| '');
     const[goToProducts,setgoToProducts]=useState(false);
-    const[Images,setImages]=useState(existingImages|| []);
+    const[images,setImages]=useState(existingImages|| []);
 
 
 
@@ -56,7 +56,7 @@ import Layout from '@/Components/layout';
 
     async function saveProduct(e){  
         e.preventDefault();
-        const data={title,description,price};
+        const data={title,description,price,images};
 
         if(_id){
             await axios.put('/api/products',{...data,_id})
@@ -84,11 +84,11 @@ import Layout from '@/Components/layout';
 
             <label>Photos</label>
             <div className='mb-2 ' >
-            {console.log}
-            {!!Images?.length && Images.map(link=> (
+           
+            {!!images?.length && images.map(link=> (
               <div key={link} className='h-24'>
-              
-                <img src={link} alt=''></img>
+               
+                <img src={link} alt='' className='rounded-lg'></img>
               </div>
             ))}
                 <label className="w-24 h-24 cursor-pointer text-center flex flex-col items-center justify-center text-sm gap-1 text-primary rounded-sm bg-white shadow-sm border border-primary">
