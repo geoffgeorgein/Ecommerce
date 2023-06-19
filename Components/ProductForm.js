@@ -47,8 +47,6 @@ import Layout from '@/Components/layout';
 
  
 
-    console.log("Title");
-    console.log(description); 
 
    
 
@@ -57,7 +55,8 @@ import Layout from '@/Components/layout';
     async function saveProduct(e){  
         e.preventDefault();
         const data={title,description,price,images};
-
+        console.log("images");
+        console.log(images);
         if(_id){
             await axios.put('/api/products',{...data,_id})
         }

@@ -20,7 +20,8 @@ export default async function handle(req,res){
     if(method==='POST'){
 
         const {title,description,price,images}=req.body;
-
+        console.log("Img2");
+      console.log({images});
         const productDoc=await Product.create({
             title,description,price,images
         })
@@ -28,14 +29,16 @@ export default async function handle(req,res){
 
     }
 
-    if(method=="PUT"){
+    if(method==="PUT"){
       const {title,description,price,_id,images}=req.body;
+      console.log("Img");
+      console.log({images});
       await Product.updateOne({_id},{title,description,price,images});
       res.json(true);
 
     }
 
-    if(method=="DELETE"){
+    if(method==="DELETE"){
 
       if(req.query?.id){
         await Product.deleteOne({_id:req.query?.id});
