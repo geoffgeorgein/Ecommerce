@@ -22,6 +22,7 @@ import Layout from '@/Components/layout';
     const [price,setPrice]=useState(existingPrice|| '');
     const[goToProducts,setgoToProducts]=useState(false);
     const[images,setImages]=useState(existingImages|| []);
+    const [isUploading,setIsUploading]=useState(fasle);
 
 
 
