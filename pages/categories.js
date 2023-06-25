@@ -6,6 +6,7 @@ const Categories = () => {
 
   const[name,setname]=useState('');
   const[categories,setcategories]=useState([]);
+  const [parentCategory,setParentCategory]=useState('');
 
   useEffect(()=>{
 
@@ -29,8 +30,19 @@ const Categories = () => {
     <Layout>
         <h1>Categories</h1>
         
-        <form onSubmit={saveCategory}>
-            <input type='text' onChange={ev=>setname(ev.target.value)} value={name}></input>
+        <form onSubmit={saveCategory} className='flex gap-1'>
+            <input type='text' onChange={ev=>setname(ev.target.value)} value={name} className='mb-0' ></input>
+            <select className='mb-0' value={parentCategory} onChange={ev=>setParentCategory(ev.target.value)}>
+              <option value='0' >No parent category</option>
+              {
+                categories.length>0 && categories.map(category=>(
+                
+                
+                  <option>{category.name} </option>
+               
+               ))
+              }
+            </select>
             <button className='btn btn-primary'  > Save</button>
         
         </form>
