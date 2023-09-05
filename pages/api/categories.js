@@ -15,8 +15,18 @@ export default async function handle(req,res){
     
 
     if(method==='POST'){
-        const {name}=req.body;
-        const CategoryDoc=await Category.create({name});
-        res.json(CategoryDoc);
-    }
+        
+        const {name,parentCategory}=req.body;
+        console.log("Parent");
+        console.log(parentCategory);
+
+        console.log("name",name);
+
+        const categoryDoc=await Category.create({
+            name,
+            parent:parentCategory ,
+        });
+        console.log(categoryDoc);
+        res.json(categoryDoc);
+    }   
 }

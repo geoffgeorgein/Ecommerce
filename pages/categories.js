@@ -23,8 +23,14 @@ const Categories = () => {
   async function saveCategory(ev){
 
       ev.preventDefault();
-      await axios.post('api/categories',{name});
+      const data={
+        name,
+        parentCategory
+      }
+      await axios.post('api/categories',data);
       setname('');
+      setParentCategory('');
+      fetchCategories();
   }
   return (
     <Layout>
